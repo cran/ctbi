@@ -3,7 +3,7 @@
 export(ctbi)
 export(ctbi.cycle)
 export(ctbi.long.term)
-export(ctbi.outliers)
+export(ctbi.outlier)
 export(ctbi.plot)
 export(ctbi.timeseries)
 export(hidd.check.bin.period)

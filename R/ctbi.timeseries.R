@@ -2,7 +2,7 @@
 #'
 #' @description Calculate the sequence of bin sides that encompasses the original time series based on a bin period and a bin side (or a bin center). The sequence of bin centers is calculated as well.
 #'
-#' @param x.t original timeseries (date, POSIXct or numeric)
+#' @param x.t original time series (date, POSIXct or numeric)
 #' @param bin.period time interval between two sides of a bin. If x.t is numeric, bin.period is numeric. If x.t is POSIXct or Date, bin.period = 'k units', with k an integer and units = (seconds, minutes, hours, days, weeks, half-months, months, years, decades, centuries, millenaries)
 #' @param bin.side one side of a bin (same class as x.t)
 #' @param bin.center if bin.side is not specified, one center of a bin (same class as x.t)
@@ -34,8 +34,13 @@
 #' seq.bin.center.numeric <- list.ts$seq.bin.center
 #' @export
 
-ctbi.timeseries <- function(x.t,bin.period,bin.side=NULL,bin.center=NULL)
+ctbi.timeseries <- function(x.t,bin.period,bin.side,bin.center=NULL)
 {
+  if(missing(bin.side))
+  {
+    bin.side <- NULL
+  }
+
 # class of the time series
 class.t <- class(x.t)
 class.t <- class.t[1]
